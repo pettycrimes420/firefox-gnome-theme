@@ -1,0 +1,32 @@
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Style main context menu & buttons */
+#context-navigation {
+    padding: 0px;
+}
+
+/* Downloads popover */
+#downloadsPanel-mainView .download-state {
+/* padding: 8px !important; */
+    border-radius: var(--gnome-border-radius) !important;
+}
+
+/* Protections popup */
+#protections-popup[toast] #protections-popup-mainView-panel-header {
+    border-radius: var(--gnome-border-radius) !important;
+}
+
+#protections-popup-tp-switch-section {
+    border-radius: var(--gnome-border-radius) !important;
+/* padding: 12px !important; */
+}
+
+
+#allTabsMenu-allTabsViewTabs > .all-tabs-item {
+    margin-inline: 0 !important;
+    border-radius: var(--gnome-border-radius) !important;
+}
+
+.panel-footer {
+    margin: 0 !important;
+}

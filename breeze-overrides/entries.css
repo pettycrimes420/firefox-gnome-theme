@@ -1,0 +1,52 @@
+/* Entries */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Entries */
+#urlbar,
+#searchbar,
+#search-box,
+.findbar-textbox,
+#loginTextbox,
+#password1Textbox,
+.tabsFilter,
+#editBMPanel_namePicker,
+#editBMPanel_tagsField {
+    margin: calc(calc(calc(var(--gnome-button-height) - var(--gnome-entry-height)) / 2) + var(--gnome-item-margin)) var(--gnome-item-margin) !important;
+    border-radius: var(--gnome-border-radius) !important;
+    height: var(--gnome-entry-height) !important;
+    min-height: var(--gnome-entry-height) !important; 
+    max-height: var(--gnome-entry-height) !important;
+}
+
+/* Entries focused */
+#urlbar[breakout][breakout-extend],
+#urlbar[focused="true"]:not([suppress-focus-border]),
+#searchbar:focus-within,
+#search-box[focused],
+.findbar-textbox[focused],
+.findbar-textbox:focus,
+#loginTextbox:focus,
+#password1Textbox:focus,
+.tabsFilter[focused],
+#editBMPanel_namePicker:focus-visible,
+#editBMPanel_tagsField:focus-visible {
+    outline: 1px solid var(--gnome-focused-urlbar-border-color) !important;
+    outline-offset: -1px !important;
+    -moz-outline-radius: var(--gnome-border-radius) !important;    
+}
+
+/* Entries combined */
+.findbar-textbox:not(.minimal) {
+	border-top-right-radius: var(--gnome-border-radius) !important;
+	border-bottom-right-radius: var(--gnome-border-radius) !important;
+	border-right-width: 1px !important;
+}
+.findbar-textbox:not(.minimal)[focused], .findbar-textbox:not(.minimal):focus {
+	-moz-outline-radius: var(--gnome-border-radius) !important;
+}
+
+/* Entries fixes */
+#urlbar-container, #search-container {
+	margin: 0 calc(var(--gnome-item-margin) * 2) 0 0 !important;
+}

@@ -1,0 +1,40 @@
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+
+/* Remove toolbox bottom border */
+
+/* #nav-bar, */
+#PersonalToolbar, #toolbar-menubar, #TabsToolbar, findbar {	
+	border-bottom: none !important;
+}
+
+/* Tabbar and searchbar colors */
+#TabsToolbar, findbar {
+	background: var(--gnome-window-background) !important;
+}
+#TabsToolbar:-moz-window-inactive, 
+findbar:-moz-window-inactive,
+.container.infobar:-moz-window-inactive {
+	background: var(--gnome-inactive-window-background) !important;
+}
+
+/* Tool box inactive opacity */
+#navigator-toolbox:-moz-window-inactive label, #navigator-toolbox:-moz-window-inactive image, 
+#downloads-indicator-anchor:-moz-window-inactive,
+findbar:-moz-window-inactive image:not(#hack),
+findbar:-moz-window-inactive label,
+findbar:-moz-window-inactive description,
+#viewButton:-moz-window-inactive dropmarker,
+.container.infobar:-moz-window-inactive {
+	opacity: 1.0 !important;
+}
+
+/* Reorder toolbars */
+#navigator-toolbox #PersonalToolbar {
+	-moz-box-ordinal-group: 0 !important;
+}
+
+#PersonalToolbar {
+	padding: var(--gnome-item-padding) !important;
+	height: calc(var(--gnome-button-height) + var(--gnome-item-padding) + var(--gnome-item-padding) + var(--gnome-item-margin) /* + var(--gnome-item-margin) */) !important;
+}

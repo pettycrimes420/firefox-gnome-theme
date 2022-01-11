@@ -1,0 +1,184 @@
+/* Popup menus and context menus */
+
+@import "popups-contents.css";
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Defaults for all panels */
+:root {
+    --panel-background: var(--gnome-menu-background) !important;
+    --panel-border-color:  var(--gnome-menu-border-color) !important;
+    --panel-border-radius: var(--gnome-border-radius) !important;
+    --panel-padding: 0 !important;
+    --panel-menuitem-margin: 0 !important;
+    --panel-menuitem-padding: var(--gnome-menu-item-padding) !important;
+    --panel-menuitem-border-radius: var(--gnome-menu-item-border-radius) !important;
+    --panel-item-hover-bgcolor: var(--gnome-popover-button-hover-background) !important;
+    --panel-item-active-bgcolor: var(--gnome-popover-button-hover-background) !important;
+    --panel-separator-margin: 0 !important;
+
+    --arrowpanel-background: var(--gnome-menu-background) !important;
+    --arrowpanel-border-color: var(--gnome-menu-border-color) !important;
+    --arrowpanel-border-radius: var(--gnome-border-radius) !important;
+    --arrowpanel-padding: 0 !important;
+    --arrowpanel-menuitem-margin: 0 !important;
+    --arrowpanel-menuitem-padding: var(--gnome-menu-item-padding) !important;
+    --arrowpanel-menuitem-border-radius: var(--gnome-menu-item-border-radius) !important;
+    --arrowpanel-item-hover-bgcolor: var(--gnome-popover-button-hover-background) !important;
+    --arrowpanel-item-active-bgcolor: var(--gnome-popover-button-hover-background) !important;
+    --arrowpanel-separator-margin: 0 !important;
+}
+
+/* Style menus */
+menupopup {
+    border-radius: var(--gnome-border-radius) !important;
+    padding: var(--gnome-menu-padding) !important;
+    margin: 0 !important;
+}
+#PlacesToolbar menupopup {
+    padding: 0 !important;
+    --panel-separator-margin: 0 !important;
+    --arrowpanel-separator-margin: 0 !important;        
+}
+menupopup menupopup {
+    margin: 0 !important;
+}
+menuitem, menupopup menu {
+    border: 1px solid transparent !important;
+    border-radius: var(--gnome-menu-item-border-radius) !important;
+    background-color: transparent !important;    
+    padding: var(--gnome-menu-item-padding) !important;
+}
+
+/* Don't use menu active state */
+menu[_moz-menuactive], menuitem[_moz-menuactive] {
+    color: initial !important;
+    background-color: initial !important;
+}
+menu[_moz-menuactive][disabled], menuitem[_moz-menuactive][disabled] {
+    color: GrayText !important;
+    background-color: initial !important;
+}
+
+/* Style hovered menus */
+menupopup menu:hover, menuitem:hover {
+    border: 1px solid var(--gnome-popover-button-hover-border-color) !important;
+    color: var(--gnome-toolbar-color) !important;
+    background-color:  var(--gnome-popover-button-hover-background) !important;
+}
+
+/* Style disabled hovered menus */
+menuitem[disabled]:hover, menupopup menu[disabled]:hover {
+    border: 1px solid transparent !important;
+    color: GrayText !important;
+    background-color: transparent !important;    
+}
+
+/* Adjust popovers position */
+panel[type=arrow] {
+    margin-top: 1px !important;
+}
+#BMB_bookmarksPopup {
+    margin-top: 20px !important;
+}
+#BMB_bookmarksPopup[side="top"], #BMB_bookmarksPopup[side="bottom"] {
+    margin-inline: -16px !important;
+}
+
+#sidebarMenu-popup {
+    margin-top: 4px !important;
+    margin-left: -29px !important;
+}
+
+/* Style popovers */
+.panel-arrowcontent {
+    border-radius: var(--gnome-border-radius) !important;
+}
+.panel-arrow {
+    display: None !important;
+}
+
+panel {
+    --panel-border-radius: var(--gnome-border-radius) !important;
+    --panel-padding: var(--gnome-menu-padding) !important;
+}
+.panel-header {
+	padding: 0 !important;
+}
+
+/* Restore padding on dialog like popovers */
+#protections-popup,
+#editBookmarkPanel {
+    --panel-padding: var(--gnome-item-padding) !important;
+}
+popupnotification {
+    padding: var(--gnome-item-padding) !important;
+}
+
+.menupopup-arrowscrollbox {
+    margin: 0 !important;
+}
+
+/* Style popovers menu buttons */
+.subviewbutton:not(#appMenu-fxa-label2),
+.toolbarbutton-1, 
+.protections-popup-category,
+.identity-popup-content-blocking-category,
+#PlacesToolbar .bookmark-item {
+    border: 1px solid transparent !important;
+    border-radius: var(--gnome-menu-item-border-radius) !important;
+}
+.subviewbutton,
+.protections-popup-category,
+.identity-popup-content-blocking-category {
+    padding: var(--gnome-menu-item-padding) !important;
+}
+/* this element is nested inside a subview button and therefore doesn't need padding. */
+#appMenu-fxa-label2 {
+    padding: 0px !important
+}
+
+#PlacesToolbar .bookmark-item[open],
+#PlacesToolbar .bookmark-item[_moz-menuactive] 
+{
+    background-color: initial !important;
+}
+.subviewbutton:not([disabled]):not(#appMenu-fxa-label2):hover, 
+.toolbarbutton-1:not([disabled]):hover, 
+.protections-popup-category:not([disabled]):hover,
+.identity-popup-content-blocking-category:not([disabled]):hover,
+#PlacesToolbar .bookmark-item:hover {
+    background-color: var(--gnome-popover-button-hover-background) !important;
+    border: 1px solid var(--gnome-popover-button-hover-border-color) !important;
+}
+
+/* vertical seperator line, disable margin */
+toolbarseparator:not([orient="vertical"]),
+menuseparator:not([orient="vertical"]),
+.PanelUI-subView toolbarseparator:not([orient="vertical"]) {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+
+
+/* #main-menubar > menu{
+    fill: currentColor;
+    height: var(--uc-menubaritem-height,28px);
+    width: var(--uc-menubaritem-width,30px);
+    -moz-context-properties: fill;
+    padding: 3px !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: var(--toolbarbutton-border-radius)
+}
+.menubar-text{ display: none }
+
+#file-menu{ background-image: url("chrome://devtools/skin/images/tool-storage.svg") }
+#edit-menu{ background-image: url("chrome://browser/skin/customize.svg") }
+#view-menu{ background-image: url("chrome://devtools/skin/images/command-frames.svg") }
+#history-menu{ background-image: url("chrome://browser/skin/history.svg") }
+#bookmarksMenu{ background-image: url("chrome://browser/skin/bookmark.svg") }
+#tools-menu{ background-image: url("chrome://global/skin/icons/developer.svg") }
+#helpMenu{ background-image: url("chrome://global/skin/icons/help.svg") } */

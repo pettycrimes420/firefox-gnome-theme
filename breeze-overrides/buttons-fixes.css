@@ -1,0 +1,20 @@
+/* Buttons Issues/Glitches fixes */
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Fix toolbars close icons */
+.close-icon:not(.tab-close-button) .toolbarbutton-icon {
+	height: var(--gnome-toolbar-icon-small-size) !important;
+	width: var(--gnome-toolbar-icon-small-size) !important;
+	margin: 0 !important;
+}
+
+/* Fix findbar buttons issues */
+.findbar-container .findbar-find-previous image,
+.findbar-container .findbar-find-next image {
+	margin: 0 !important;
+}
+
+/* Bookmarks editor buttons */
+.expander-down image, .expander-up image {
+	margin: 0 !important;
+}

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Switch Firefox theme
+Comment=Switch Firefox to breeze theme when running the KDE PLasma session
+Type=Application
+Exec=/usr/bin/switch-firefox-theme
+Terminal=false
+StartupNotify=false
+NoDisplay=true
+
+X-GNOME-Autostart-Delay=10
+X-KDE-autostart-after=panel
+X-DBUS-StartupType=Unique

@@ -1,0 +1,22 @@
+/* Sidebar */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Disable inactive opacity */
+#sidebar-box:-moz-window-inactive label, #sidebar-box:-moz-window-inactive image,
+.sidebar-panel:-moz-window-inactive label, .sidebar-panel:-moz-window-inactive image,
+.sidebar-placesTreechildren:-moz-window-inactive {
+	opacity: 1.0 !important;
+}
+
+/* Remove sidebar bottom border */
+#sidebar-header {
+	border-bottom: none !important;
+}
+
+/* OPTIONAL: no maximum sidebar size */
+@supports -moz-bool-pref("gnomeTheme.allowLargeSidebar") {
+	#sidebar {
+		max-width: none !important;
+  	}
+}

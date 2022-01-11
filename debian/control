@@ -1,0 +1,16 @@
+Source: firefox-breeze-theme
+Section: kde
+Priority: optional
+Maintainer: Usarin Heininga <usarinheininga@hotmail.com>
+Build-Depends: debhelper-compat (= 11)
+Standards-Version: 4.6.0
+Homepage: https://github.com/uszie/firefox-breeze-theme
+Vcs-Browser: https://github.com/uszie/firefox-gnome-theme
+Vcs-Git: https://github.com/uszie/firefox-gnome-theme.git
+Rules-Requires-Root: no
+
+Package: firefox-breeze-theme
+Architecture: all
+Depends: firefox, ${misc:Depends}
+Description: Breeze them for Firefox
+ A Firefox theme built to match KDE's Breeze.

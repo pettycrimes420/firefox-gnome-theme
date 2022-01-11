@@ -1,0 +1,81 @@
+#!/bin/bash
+
+THEME="firefox-breeze-theme"
+THEMEDIRECTORY="/usr/share/themes/${THEME}"
+FIREFOXFOLDER="${HOME}/.mozilla/firefox"
+
+firefoxInstalationPaths=(
+    "${HOME}/.mozilla/firefox"
+    "${HOME}/.var/app/org.mozilla.firefox/.mozilla/firefox"
+)
+
+if ! [[ -e "$FIREFOXFOLDER" ]];
+then
+	# Run firefox to create a profile
+	echo "creating a profile"
+	firefox &
+	sleep 1 && pkill firefox
+fi
+
+theme_apply() {
+	# Enter Firefox profile folder.
+	if ! cd "$PROFILEFOLDER"
+	then
+		echo "Error entering profile folder."
+		return 0
+	fi
+
+	echo "Installing theme in $PWD"
+	# Create a chrome directory if it doesn't exist.
+	mkdir -p chrome
+	cd chrome
+
+    if [[ "$PROFILEFOLDER" =~ "/org.mozilla.firefox/" ]]
+    then
+        # Copy the theme directory to the profile
+        echo "Copy'ing repo in $PWD"
+        cp -fR "${THEMEDIRECTORY}/chrome/" "${PWD}/${THEME}"
+    else
+        # Link the theme directory to the profile
+        echo "Linking repo in $PWD"
+        [[ -e "${PWD}/${THEME}" ]] ||  ln -s "${THEMEDIRECTORY}/chrome/" "${PWD}/${THEME}"
+    fi
+
+	# Create single-line user CSS files if non-existent or empty.
+	if [ -s userChrome.css ]
+	then
+		# Remove older theme imports
+		sed "s/@import \"${THEME}.*.//g" userChrome.css | sed '/^\s*$/d' > userChrome.css
+		echo >> userChrome.css
+	else
+		echo >> userChrome.css
+	fi
+
+	# Import this theme at the beginning of the CSS files.
+	sed -i "1s/^/@import \"${THEME}\/userChrome.css\";\n/" userChrome.css
+
+	# Symlink user.js to firefox-theme one.
+	echo "Set configuration user.js file"
+	[[ -e  ../user.js ]] || ln -s "chrome/${THEME}/configuration/user.js" ../user.js
+
+	# If there is no userContent.css, create it
+	[[ -s "userContent.css" ]] || cp "/usr/share/themes/${THEME}/chrome/userContent.css" "userContent.css" 2>/dev/null
+
+	echo "Done."
+}
+
+for folder in "${firefoxInstalationPaths[@]}"
+do
+    if [ -d $folder ]
+    then
+        echo "Firefox installation folder found"
+
+        FIREFOXFOLDER="$folder"
+        # Define profile folder path.
+        for i in $(echo "$FIREFOXFOLDER/*.default*")
+        do
+            PROFILEFOLDER="$i"
+            theme_apply
+        done
+    fi
+done

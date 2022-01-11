@@ -1,0 +1,10 @@
+/* Lists */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* TODO: create list color vars */
+/* List container */
+#permission-popup-permission-list,
+richlistbox#items {
+	border-radius: var(--gnome-border-radius) !important;
+}

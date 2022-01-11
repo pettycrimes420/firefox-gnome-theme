@@ -1,0 +1,710 @@
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Icons light/dark fix coloring hack filters */
+
+/* These are not needed for Breeze icons */
+@supports not -moz-bool-pref("gnomeTheme.symbolicSystemIcons") {
+    :root {
+        --gnome-icons-hack-filter: none !important;
+        --gnome-window-icons-hack-filter: none !important;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --gnome-icons-hack-filter: none !important;
+            --gnome-window-icons-hack-filter: none !important;
+        }
+    }
+}
+    
+@supports -moz-bool-pref("gnomeTheme.systemIcons") {
+    /* Scroll icons */
+    arrowscrollbox {
+        --scrollbutton-icon-name: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
+    }
+    arrowscrollbox[orient="horizontal"] {
+        --scrollbutton-icon-name: url("moz-icon://stock/go-previous-symbolic?size=menu") !important;
+    }
+    /* Popovers subview menu arrow */
+    #identity-popup-mainView .subviewbutton-nav::after,
+    .widget-overflow-list .subviewbutton-nav::after,
+    .PanelUI-subView .subviewbutton-nav::after {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background: url("moz-icon://stock/go-next-symbolic?size=menu") !important;
+    }
+    .protections-popup-category::after {
+        filter: var(--gnome-icons-hack-filter) !important;
+        content: url("moz-icon://stock/go-next-symbolic?size=menu") !important;
+    }
+    .identity-popup-content-blocking-category::after {
+        filter: var(--gnome-icons-hack-filter) !important;
+        content: url("moz-icon://stock/go-previous-symbolic?size=menu") !important;
+    }
+    #identity-popup-security-expander .button-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-previous-symbolic?size=menu") !important;
+    }
+    /* Popovers subview back button */
+    .subviewbutton-back .toolbarbutton-icon{
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-previous-symbolic?size=menu") !important;
+    }
+    /* Sub menu arrow */
+    .menu-right {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-next-symbolic?size=menu") !important;
+    }
+    /* Arrow down buttons */
+    .expander-down>.button-box,
+    #sidebar-switcher-arrow,
+    #viewButton .button-menu-dropmarker,
+    .popup-notification-dropmarker .button-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
+    }
+    .menulist-label-box:after {
+        filter: var(--gnome-icons-hack-filter) !important;
+        content: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
+    }
+    /* Arrow up buttons */
+    .expander-up>.button-box {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-up-symbolic?size=menu") !important;
+    }
+    /* Search entries */
+    #urlbar:not(.searchButton)>#urlbar-input-container>#identity-box[pageproxystate="invalid"]>#identity-icon,
+    .searchbar-search-icon,
+    .textbox-search-sign {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-find-symbolic?size=menu") !important;
+    }
+    /* Findbar */
+    .findbar-find-previous .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-up-symbolic?size=menu") !important;
+    }
+    .findbar-find-next .toolbarbutton-icon{
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
+    }
+    /* Tree views */
+    treechildren::-moz-tree-twisty,
+    .item.client.closed .item-twisty-container {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-next-symbolic?size=menu") !important;
+    }
+    .item.client.closed .item-twisty-container {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/go-next-symbolic?size=menu") !important;
+    }
+    treechildren::-moz-tree-twisty(open) {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
+    }
+    .item.client .item-twisty-container {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
+    }
+    treechildren::-moz-tree-image(title,
+    container),
+    treechildren::-moz-tree-image(title,
+    open) {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/folder-symbolic?size=menu") !important;
+    }
+    treechildren::-moz-tree-image(title,
+    query,
+    dayContainer),
+    treechildren::-moz-tree-image(query,
+    OrganizerQuery_history____v) {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("/usr/share/icons/breeze-dark/16/shallow-history.svg") !important;
+    }
+
+    /* Close button */
+    .close-icon:not(.tab-close-button) .toolbarbutton-icon,
+    .identity-popup-permission-remove-button .button-icon,
+    .permission-popup-permission-remove-button > .button-box > .button-icon {
+        filter: none !important;
+        list-style-image:  url("moz-icon://stock/window-close-symbolic?size=menu") !important;
+    }
+    #urlbar-search-mode-indicator-close,
+    button.close::before {
+	    background-image:  url("moz-icon://stock/window-close-symbolic?size=menu") !important;
+    }
+    #urlbar-search-mode-indicator-close,
+    button.close::before {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/window-close-symbolic?size=menu") !important;
+    }
+
+    /* Sound icons */
+    .tab-icon-overlay[soundplaying] {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/audio-volume-high-symbolic?size=menu") !important;
+    }
+    .tab-icon-overlay[muted] {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/audio-volume-muted-symbolic?size=menu") !important;
+    }
+
+    /* Info */
+    .panel-info-button>image,
+    #identity-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/documentinfo") !important;
+    }
+    .tabbrowser-tab[image="chrome://global/skin/icons/info.svg"]:not([busy]):not([progress]) .tab-icon-stack::before {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/documentinfo") !important;
+    }
+    /* Password */
+    #password-notification-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/database-change-key") !important;
+    }
+    /* Url Bar icons */
+    #urlbar:not(.searchButton)>#urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-find-symbolic") !important;
+    }
+    #urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box > #tracking-protection-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/security-high-symbolic") !important;
+    }
+    #urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container>#tracking-protection-icon-box[hasException] > #tracking-protection-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/security-low-symbolic") !important;
+    }
+    #urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box:not([hasException])[active] > #tracking-protection-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/security-high-symbolic") !important;
+    }
+    #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon,
+    #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/channel-secure-symbolic") !important;
+    }
+    #identity-popup[connection^="secure"] .identity-popup-security-connection {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/channel-secure-symbolic") !important;
+    }
+    #identity-box[pageproxystate="valid"].notSecure #identity-icon,
+    #identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon,
+    #identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/channel-insecure-symbolic") !important;
+    }
+    .identity-popup-security-connection {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/channel-insecure-symbolic") !important;
+    }
+    #permissions-granted-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/wallet-open") !important;
+    }
+    .popup-notification-icon[popupid="web-notifications"],
+    .desktop-notification-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/notifications?size=menu") !important;
+    }
+    .desktop-notification-icon.blocked-permission-icon {
+      list-style-image: url("moz-icon://stock/notifications-disabled?size=menu") !important;
+    }
+    #reader-mode-button .urlbar-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/view-readermode?size=menu") !important;
+    }
+    #reader-mode-button[readeractive] .urlbar-icon {
+        list-style-image: url("moz-icon://stock/view-readermode-active?size=menu") !important;
+    }
+    #star-button {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/non-starred-symbolic?size=menu") !important;
+    }
+    #star-button[starred] {
+        fill: orange !important;
+        list-style-image: url("moz-icon://stock/starred-symbolic?size=menu") !important;
+    }
+        
+    /* Folder icon */
+    .bookmark-item[container] .menu-iconic-icon,
+    .downloadIconShow > .button-box > .button-icon {
+        /* filter: var(--gnome-icons-hack-filter) !important; */
+        list-style-image: url("moz-icon://stock/folder-symbolic") !important;
+    }
+
+	/* Back button */
+	#back-button .toolbarbutton-icon,
+    #context-back .menu-iconic-icon {
+		filter: var(--gnome-icons-hack-filter);
+		list-style-image: url("moz-icon://stock/go-previous-symbolic?size=menu") !important;
+	}
+	#nav-bar #back-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/go-previous-symbolic?size=toolbar") !important;
+	}
+
+    /* Forward button */
+	#forward-button .toolbarbutton-icon,
+    #context-forward .menu-iconic-icon {
+		filter: var(--gnome-icons-hack-filter);
+		list-style-image: url("moz-icon://stock/go-next-symbolic?size=menu") !important;
+	}    
+    #nav-bar #forward-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/go-next-symbolic?size=toolbar") !important;
+	}    
+
+    /* Reload */
+    #reload-button .toolbarbutton-icon,
+    #context-reload .menu-iconic-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/view-refresh-symbolic?size=menu") !important;
+    }
+    #nav-bar #reload-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/view-refresh-symbolic?size=toolbar") !important;
+    }
+
+    /* Home button */
+    #home-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/user-home-symbolic?size=menu") !important;
+    }    
+    #nav-bar #home-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/user-home-symbolic?size=toolbar") !important;
+    }
+    
+    /* Stop */
+    #stop-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/process-stop-symbolic?size=menu") !important;
+    }
+    #nav-bar #stop-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/process-stop-symbolic?size=toolbar") !important;
+    }
+    
+    /* Open file button */
+    #open-file-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/document-open-symbolic?size=menu") !important;
+    }
+    #nav-bar #open-file-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/document-open-symbolic?size=toolbar") !important;
+    }
+
+    /* Save page button */
+    #save-page-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/document-save-symbolic?size=menu") !important;
+    }
+    #nav-bar #save-page-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/document-save-symbolic?size=toolbar") !important;
+    }
+
+    /* Sidebar button */
+    #sidebar-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+    }
+    #sidebar-button:-moz-locale-dir(ltr):not([positionend])  .toolbarbutton-icon, 
+    #sidebar-button:-moz-locale-dir(rtl)[positionend]  .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-expand-left?size=menu") !important;
+    }
+    #sidebar-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-expand-right?size=menu") !important;
+    }
+
+    #sidebar-button:-moz-locale-dir(ltr):not([positionend])[checked] .toolbarbutton-icon, 
+    #sidebar-button:-moz-locale-dir(rtl)[positionend][checked]  .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-collapse-left?size=menu") !important;
+    }
+    #sidebar-button[checked] .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-collapse-right?size=menu") !important;
+    }
+    #nav-bar #sidebar-button:-moz-locale-dir(ltr):not([positionend])  .toolbarbutton-icon, 
+    #nav-bar #sidebar-button:-moz-locale-dir(rtl)[positionend]  .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-expand-left?size=toolbar") !important;
+    }
+    #nav-bar #sidebar-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-expand-right?size=toolbar") !important;
+    }
+
+    #nav-bar #sidebar-button:-moz-locale-dir(ltr):not([positionend])[checked] .toolbarbutton-icon, 
+    #nav-bar #sidebar-button:-moz-locale-dir(rtl)[positionend][checked]  .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-collapse-left?size=toolbar") !important;
+    }
+    #nav-bar #sidebar-button[checked] .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/sidebar-collapse-right?size=toolbar") !important;
+    }
+        
+    /* Find button */
+    #find-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/system-search-symbolic?size=menu") !important;
+    }
+    #nav-bar #find-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/system-search-symbolic?size=toolbar") !important;
+    }
+    
+    /* Developer button */
+    #developer-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/run-build?size=menu") !important;
+    }
+    #nav-bar #developer-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/run-build?size=toolbar") !important;
+    }
+    
+    /* character encoding button */
+    #characterencoding-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/character-set?size=menu") !important;
+    } 
+    #nav-bar #characterencoding-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/character-set?size=toolbar") !important;
+    }    
+    
+    /* Settings button */
+    #urlbar-anon-search-settings .button-icon,
+    #preferences-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/settings-configure?size=menu") !important;        
+    }
+    #nav-bar #preferences-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/settings-configure?size=toolbar") !important;        
+    }
+    
+    /* Addons button */
+    #add-ons-button .toolbarbutton-icon,
+    #addons-notification-icon,
+    .install-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/extension-symbolic?size=menu") !important;
+    }
+    #nav-bar #add-ons-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/extension-symbolic?size=toolbar") !important;
+    }
+    
+    /* Cut button */
+    #cut-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-cut-symbolic?size=menu") !important;
+    }
+    #nav-bar #cut-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/edit-cut-symbolic?size=toolbar") !important;
+    }
+    
+    /* Copy button */
+    #copy-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-copy-symbolic?size=menu") !important;
+    }    
+    #nav-bar #copy-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/edit-copy-symbolic?size=toolbar") !important;
+    }
+    
+    /* Paste button */
+    #paste-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-paste-symbolic?size=menu") !important;
+    }
+    #nav-bar #paste-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/edit-paste-symbolic?size=toolbar") !important;
+    }
+    
+    /* Print button */
+    #print-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/document-print-symbolic?size=menu") !important;
+    }    
+    #nav-bar #print-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/document-print-symbolic?size=toolbar") !important;
+    }
+    
+    /* Email link button */
+    #email-link-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/mail-unread-symbolic?size=menu") !important;
+    }    
+    #nav-bar #email-link-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/mail-unread-symbolic?size=toolbar") !important;
+    }
+    
+    /* Screenshot button */
+    #screenshot-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/camera-photo-symbolic?size=menu") !important;        
+    }
+    #nav-bar #screenshot-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/camera-photo-symbolic?size=toolbar") !important;        
+    }
+    
+    /* Tabs sync */
+    #sync-button .toolbarbutton-icon,
+    #sidebar-box[sidebarcommand="viewTabsSidebar"]>#sidebar-header>#sidebar-switcher-target>#sidebar-icon,
+    .urlbarView-row[source="tabs"]>.urlbarView-row-inner>.urlbarView-no-wrap>.urlbarView-favicon,
+    #urlbar-engine-one-off-item-tabs .button-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/state-sync?size=menu") !important;
+    }
+    #nav-bar #sync-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/state-sync?size=toolbar") !important;        
+    }
+    
+    /* Downloads button */
+    #downloads-button .toolbarbutton-icon,
+    #downloads-button #downloads-indicator-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/folder-download-symbolic?size=menu") !important;
+    }
+    #nav-bar #downloads-button .toolbarbutton-icon,
+    #nav-bar #downloads-button #downloads-indicator-icon {
+        list-style-image: url("moz-icon://stock/folder-download-symbolic?size=toolbar") !important;
+    }    
+
+    /* Folder icon */
+    .bookmark-item[container],
+    .downloadIconShow > .button-box > .button-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/folder-symbolic?size=toolbar") !important; 
+    }
+
+    /* Bookmark organize button */
+    #bookmarks-menu-button .toolbarbutton-icon,
+    #sidebar-box[sidebarcommand="viewBookmarksSidebar"]>#sidebar-header>#sidebar-switcher-target>#sidebar-icon,
+    .urlbarView-row[source="bookmarks"]>.urlbarView-row-inner>.urlbarView-no-wrap>.urlbarView-favicon,
+    #urlbar-engine-one-off-item-bookmarks .button-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/bookmarks-organize?size=menu") !important;        
+    }
+    #nav-bar #bookmarks-menu-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/bookmarks-organize?size=toolbar") !important;        
+    }
+
+    /* Context bookmark button */
+    #context-bookmarkpage .menu-iconic-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/bookmark-add-symbolic?size=menu") !important;
+    }
+    #context-bookmarkpage[starred="true"] .menu-iconic-icon {
+        list-style-image: url("moz-icon://stock/bookmark-edit?size=menu") !important;
+    }
+
+    /* Import bookmarks button */
+    #import-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/document-import?size=menu") !important;        
+    }
+    #nav-bar #import-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/document-import?size=toolbar") !important;        
+    }
+
+    /* History button */
+    #history-panelmenu .toolbarbutton-icon,
+    #sidebar-box[sidebarcommand="viewHistorySidebar"]>#sidebar-header>#sidebar-switcher-target>#sidebar-icon,
+    .urlbarView-row[source="history"]>.urlbarView-row-inner>.urlbarView-no-wrap>.urlbarView-favicon,
+    #urlbar-engine-one-off-item-history .button-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/deep-history?size=menu") !important;
+    }
+    #nav-bar #history-panelmenu .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/deep-history?size=toolbar") !important;
+    }
+    
+    /* Panic/remove history button */
+    #panic-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-clear-history?size=menu") !important;        
+    }    
+    #nav-bar #panic-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/edit-clear-history?size=toolbar") !important;        
+    }
+
+    /* Save to pocket button */
+       #save-to-pocket-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/archive-insert?size=menu") !important;
+    }
+    #nav-bar #save-to-pocket-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/archive-insert?size=toolbar") !important;
+    }
+
+    /* Overflow/places button */
+    #PlacesChevron .toolbarbutton-icon,
+    #nav-bar-overflow-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/arrow-right-double?size=toolbar") !important;
+    }
+      
+    #fxa-toolbar-menu-button>.toolbarbutton-badge-stack .toolbarbutton-icon,
+    #fxa-toolbar-menu-button>.toolbarbutton-badge-stack>vbox #fxa-avatar-image {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/avatar-default-symbolic?size=menu") !important;
+    }
+    #nav-bar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack .toolbarbutton-icon,
+    #nav-bar #fxa-toolbar-menu-button>.toolbarbutton-badge-stack>vbox #fxa-avatar-image {
+        list-style-image: url("moz-icon://stock/avatar-default-symbolic?size=toolbar") !important;
+    }
+
+    /* Menu button */
+    #PanelUI-menu-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/open-menu-symbolic?size=menu") !important;
+    }
+    #nav-bar #PanelUI-menu-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/open-menu-symbolic?size=toolbar") !important;
+    }
+    :root[privatebrowsingmode="temporary"] #nav-bar #PanelUI-menu-button .toolbarbutton-icon {
+        filter: sepia(100%) hue-rotate(315deg) saturate(1000000000%) !important;
+        list-style-image: url("moz-icon://stock/view-private-symbolic?size=toolbar") !important;        
+    }
+
+
+    /* Private browsing button */
+    #privatebrowsing-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/view-private-symbolic?size=menu") !important;
+    }
+    #nav-bar #privatebrowsing-button .toolbarbutton-icon {
+        list-style-image: url("moz-icon://stock/view-private-symbolic?size=toolbar") !important;
+    }
+
+	/* New tab button */
+    #tabs-newtab-button .toolbarbutton-icon {
+		filter: var(--gnome-icons-hack-filter) !important;
+		list-style-image: url("moz-icon://stock/list-add-symbolic?size=menu") !important;        
+    }
+	#new-tab-button .toolbarbutton-icon {
+		filter: var(--gnome-icons-hack-filter) !important;
+		list-style-image: url("moz-icon://stock/tab-new-symbolic?size=menu") !important;
+	}
+	#nav-bar #new-tab-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/tab-new-symbolic?size=toolbar") !important;
+	}
+     
+	/* New window button */
+	#new-window-button .toolbarbutton-icon {
+		filter: var(--gnome-icons-hack-filter) !important;
+		list-style-image: url("moz-icon://stock/window-new?size=menu") !important;
+	}
+	#nav-bar #new-window-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/window-new?size=toolbar") !important;
+	}
+
+	/* Fullscreen button */
+	#fullscreen-button .toolbarbutton-icon {
+		filter: var(--gnome-icons-hack-filter) !important;
+		list-style-image: url("moz-icon://stock/view-fullscreen-symbolic?size=menu") !important;
+	}
+	#nav-bar #fullscreen-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/view-fullscreen-symbolic?size=toolbar") !important;
+	}
+
+	/* Zoom out button */
+	#zoom-out-button .toolbarbutton-icon {
+		filter: var(--gnome-icons-hack-filter);
+		list-style-image: url("moz-icon://stock/zoom-out-symbolic?size=menu") !important;
+	}
+	#nav-bar #zoom-out-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/zoom-out-symbolic?size=toolbar") !important;
+	}
+
+	/* Zoom in button */
+	#zoom-in-button .toolbarbutton-icon {
+        padding-inline-start: 0 !important;        
+		filter: var(--gnome-icons-hack-filter);
+		list-style-image: url("moz-icon://stock/zoom-in-symbolic?size=menu") !important;
+	}
+	#nav-bar #zoom-in-button .toolbarbutton-icon {
+		list-style-image: url("moz-icon://stock/zoom-in-symbolic?size=toolbar") !important;
+	}
+
+
+    /* Main menu buttons icons */
+    #appMenu-fxa-status2[fxastatus]>toolbarbutton::before {
+        filter: var(--gnome-icons-hack-filter) !important;
+        background-image: url("moz-icon://stock/avatar-default-symbolic?size=menu") !important;
+    }
+    #appMenu-zoomReduce-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/zoom-out-symbolic?size=menu") !important;
+    }
+    #appMenu-zoomEnlarge-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/zoom-in-symbolic?size=menu") !important;
+    }
+    #appMenu-fullscreen-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/view-fullscreen-symbolic?size=menu") !important;
+    }
+    #appMenu-find-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-find-symbolic?size=menu") !important;
+    }
+    #appMenu-cut-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-cut-symbolic?size=menu") !important;
+    }    
+    #appMenu-copy-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-copy-symbolic?size=menu") !important;
+    }
+    #appMenu-paste-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/edit-paste-symbolic?size=menu") !important;
+    }
+    #appMenu-print-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/document-print-symbolic?size=menu") !important;
+    }
+    #appMenu-save-file-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/document-save-symbolic?size=menu") !important;
+    }
+    #appMenu-new-tab-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/tab-new-symbolic?size=menu") !important;
+    }
+    #appMenu-new-window-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/window-new?size=menu") !important;
+    }
+    #appMenu-new-private-window-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/view-private-symbolic?size=menu") !important;
+    }
+    #appMenu-bookmarks-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/bookmarks-organize?size=menu") !important;
+    }
+    #appMenu-history-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/deep-history?size=menu") !important;
+    }
+    #appMenu-downloads-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/folder-downloads?size=menu") !important;
+    }
+    #appMenu-passwords-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/database-change-key?size=menu") !important;
+    }
+    #appMenu-extensions-themes-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/extension-symbolic?size=menu") !important;
+    }
+    #appMenu-settings-button .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/settings-configure?size=menu") !important;
+    }
+    #appMenu-more-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/view-more-symbolic?size=menu") !important;
+    }
+    #appMenu-help-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/help-about-symbolic?size=menu") !important;
+    }
+    #appMenu-quit-button2 .toolbarbutton-icon {
+        filter: var(--gnome-icons-hack-filter) !important;
+        list-style-image: url("moz-icon://stock/application-exit-symbolic?size=menu") !important;
+    }
+}

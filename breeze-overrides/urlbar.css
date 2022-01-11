@@ -1,0 +1,41 @@
+ /* Header bar's URL bar */
+
+ @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+ #urlbar-container,
+ #urlbar {
+    --urlbar-min-height: var(--gnome-entry-height) !important;
+    --urlbar-height: var(--gnome-entry-height) !important;
+    --urlbar-toolbar-height: var(--gnome-entry-height) !important;
+    --urlbar-icon-padding: calc(calc(var(--gnome-entry-height) - var(--gnome-toolbar-icon-small-size) - 2px) / 2) !important;
+ }
+
+ /* URL bar */
+#urlbar[breakout][breakout-extend] #urlbar-input-container {
+    height: calc(var(--gnome-entry-height) - 2px) !important;
+    max-height: calc(var(--gnome-entry-height) - 2px) !important;
+}
+
+/* URL bar results */
+.urlbarView-body-outer {
+    padding: var(--gnome-menu-padding) !important;
+}
+
+.urlbarView-row-inner {
+    padding-block: var(--gnome-menu-item-padding) !important;
+    border-radius: var(--gnome-menu-item-border-radius) !important;
+}
+
+.urlbarView-row[selected] .urlbarView-row-inner {
+    background: var(--gnome-accent-alternative) !important;
+    color: var(--gnome-accent-alternative-text) !important;
+}
+.urlbarView-row:not([selected]):hover .urlbarView-row-inner {
+    background: var(--gnome-accent-alternative) !important;
+}
+
+/* Search engines buttons */
+.search-one-offs {
+    margin-bottom: 1px !important;
+    border-radius: 0 0 var(--gnome-border-radius) var(--gnome-border-radius) !important;
+}

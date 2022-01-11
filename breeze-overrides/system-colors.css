@@ -1,0 +1,191 @@
+@namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Variables that start with --gnome- are added by me and are assigned
+ * to elements somewhere in this code. The rest of the variables are
+ * built-in in Firefox, so you need to add an !important if you wanna
+ * override them. */
+/*
+
+/* @media (prefers-color-scheme: light) { */
+	:root {
+		--gnome-browser-before-load-background: Field;
+        --gnome-control-shadow-color: color-mix(in srgb, color-mix(in srgb, Window 45%, #000000) 20%, Window);
+        --gnome-control-darker-shadow-color: color-mix(in srgb, color-mix(in srgb, Window 45%, #000000) 40%, Window);
+
+		/* Accent */
+        --gnome-accent: -moz-MenuHover;
+        --gnome-accent-text: -moz-MenuHoverText;
+        --gnome-accent-alternative: Highlight;
+        --gnome-accent-alternative-text: HighlightText;
+
+		/* Global */
+		--gnome-window-background: Window;
+		--gnome-inactive-window-background: Window;
+
+        /* Toolbars */
+		--gnome-toolbar-background: ActiveCaption;
+		--gnome-toolbar-color: WindowText;
+		--gnome-toolbar-border-color: ThreeDShadow/* transparent */;
+		--gnome-toolbar-icon-fill: WindowText;
+		--gnome-inactive-toolbar-color: WindowText;
+		--gnome-inactive-toolbar-background: Window;
+		--gnome-inactive-toolbar-border-color: ThreeDShadow;
+		--gnome-inactive-toolbar-icon-fill: WindowText;
+
+		/* Sidebar */
+		--gnome-sidebar-background: Window;
+		--gnome-inactive-sidebar-background: Window;
+
+		/* Popups */
+		--gnome-menu-background: Menu;
+		--gnome-menu-border-color: ThreeDShadow;
+		--gnome-popover-background: Menu;
+		--gnome-popover-border-color: ThreeDShadow;
+		--gnome-popover-shadow: none;
+		--gnome-popover-button-hover-background: color-mix(in srgb, var(--gnome-accent) 33.3%, var(--gnome-menu-background));
+        --gnome-popover-button-hover-border-color: var(--gnome-accent);
+		--gnome-popover-separator-color: ThreeDShadow;
+
+		/* Header bar */
+		--gnome-headerbar-background: Window;
+		--gnome-headerbar-border-color: ThreeDShadow;
+		--gnome-headerbar-box-shadow: none;
+		--gnome-inactive-headerbar-background: Window;
+		--gnome-inactive-headerbar-border-color: ThreeDShadow;
+		--gnome-inactive-headerbar-box-shadow: none;
+
+		/* Tool Buttons */
+        --gnome-toolbutton-background: transparent;
+        --gnome-toolbutton-border-color: transparent;
+        --gnome-toolbutton-border-accent-color: transparent;
+        --gnome-toolbutton-box-shadow: none;
+        --gnome-toolbutton-hover-background: transparent;
+        --gnome-toolbutton-hover-border-color: var(--gnome-accent-alternative);
+        --gnome-toolbutton-hover-border-accent-color: var(--gnome-accent-alternative);		
+        --gnome-toolbutton-active-background: color-mix(in srgb, var(--gnome-accent-alternative) 33.3%, transparent);
+        --gnome-toolbutton-active-border-color: var(--gnome-accent-alternative);
+        --gnome-toolbutton-active-border-accent-color: var(--gnome-accent-alternative);
+        --gnome-toolbutton-active-box-shadow: none;
+        --gnome-toolbutton-disabled-background: transparent;
+        --gnome-toolbutton-disabled-border-color: transparent;
+        --gnome-toolbutton-disabled-box-shadow: none;
+        --gnome-inactive-toolbutton-background: transparent;
+        --gnome-inactive-toolbutton-border-color: transparent;
+        --gnome-inactive-toolbutton-box-shadow: none;
+
+		/* Buttons */
+		--gnome-button-color: -moz-ButtonHoverFace;
+		--gnome-button-background: linear-gradient(180deg, color-mix(in srgb, var(--gnome-button-color), white 3.125%) 0%, var(--gnome-button-color) 50%, color-mix(in srgb, var(--gnome-button-color), black 3.125%) 100%);
+		--gnome-button-border-color: ThreeDShadow;
+		--gnome-button-border-accent-color: ThreeDShadow;
+        --gnome-button-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+        --gnome-button-hover-background: var(--gnome-button-background);
+		--gnome-button-hover-border-color: var(--gnome-accent-alternative);
+		--gnome-button-active-background: color-mix(in srgb, var(--gnome-accent-alternative) 33.3%, var(--gnome-button-color));
+		--gnome-button-active-border-color: var(--gnome-accent-alternative);
+		--gnome-button-active-border-accent-color: var(--gnome-accent-alternative);
+		--gnome-button-active-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+		--gnome-button-disabled-background: var(--gnome-button-background);
+		--gnome-button-disabled-border-color: ThreeDShadow;
+		--gnome-button-disabled-box-shadow: none;
+		--gnome-inactive-button-background: var(--gnome-button-background);
+		--gnome-inactive-button-border-color: ThreeDShadow;
+		--gnome-inactive-button-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+        --gnome-button-suggested-action-background: color-mix(in srgb, var(--gnome-accent-alternative) 12.5%, var(--gnome-button-color));
+		--gnome-button-suggested-action-border-color: color-mix(in srgb, var(--gnome-accent-alternative) 50%, color-mix(in srgb, var(--gnome-button-color) 33.3%, buttonText));
+		--gnome-button-suggested-action-border-accent-color: color-mix(in srgb, var(--gnome-accent-alternative) 50%, color-mix(in srgb, var(--gnome-button-color) 33.3%, buttonText));
+		--gnome-button-suggested-action-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+		--gnome-button-suggested-action-hover-background: var(--gnome-button-suggested-action-background);
+        --gnome-button-suggested-action-hover-border-color: var(--gnome-accent-alternative);
+        --gnome-button-suggested-action-active-background: var(--gnome-button-active-background);
+		--gnome-button-suggested-action-active-border-color: var(--gnome-accent-alternative);
+		--gnome-button-suggested-action-active-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+        --gnome-button-destructive-action-background: var(--gnome-button-background);
+		--gnome-button-destructive-action-border-color: ThreeDShadow;
+		--gnome-button-destructive-action-border-accent-color: ThreeDShadow;
+		--gnome-button-destructive-action-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+        --gnome-button-destructive-action-hover-background: var(--gnome-button-background);
+        --gnome-button-destructive-action-hover-border-color: var(--gnome-accent-alternative);
+        --gnome-button-destructive-action-active-background: var(--gnome-button-active-background);
+		--gnome-button-destructive-action-active-border-color: var(--gnome-accent-alternative);
+		--gnome-button-destructive-action-active-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+
+		/* Entries */
+		--gnome-entry-background: Field;
+		--gnome-entry-border-color: ThreeDShadow;
+		--gnome-entry-box-shadow: none;
+		--gnome-entry-color: FieldText;
+		--gnome-inactive-entry-background: Field;
+		--gnome-inactive-entry-border-color: ThreeDShadow;
+		--gnome-inactive-entry-box-shadow: none;
+		--gnome-inactive-entry-color: FieldText;
+		--gnome-focused-urlbar-border-color: var(--gnome-accent);
+
+		/* Switch */
+		--gnome-switch-background: ThreeDShadow;
+		--gnome-switch-border-color: ThreeDShadow;
+		--gnome-switch-slider-background: Window;
+		--gnome-switch-slider-border-color: ThreeDShadow;
+		--gnome-switch-slider-box-shadow: none; /*inset 0 1px rgba(255, 255, 255, 0.02), 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.07);*/
+		--gnome-switch-active-background: var(--gnome-accent-alternative);
+		--gnome-switch-active-border-color: var(--gnome-accent-alternative);
+		--gnome-switch-active-slider-border-color: ThreeDShadow;
+
+		/* Tabs */
+		--gnome-tabbar-background: Window;
+		--gnome-inactive-tabbar-background: Window;
+        --gnome-tabbar-tab-close-overlay-bg: #da4453;
+		--gnome-tabbar-tab-color: WindowText;
+		--gnome-tabbar-tab-background: var(--gnome-control-shadow-color);
+		--gnome-tabbar-tab-border-color: ThreeDShadow;
+		--gnome-tabbar-tab-hover-background: color-mix(in srgb, var(--gnome-accent) 20%, Window);
+		--gnome-tabbar-tab-hover-color: WindowText;
+		--gnome-tabbar-tab-active-background: Window;
+		--gnome-tabbar-tab-active-background-contrast: ButtonShadow;
+		--gnome-tabbar-tab-active-color: WindowText;
+		--gnome-tabbar-tab-active-hover-background: Window;
+		--gnome-inactive-tabbar-tab-color: WindowText;
+		--gnome-inactive-tabbar-tab-background: var(--gnome-control-shadow-color);
+		--gnome-inactive-tabbar-tab-active-background: Window;
+		--gnome-inactive-tabbar-tab-active-color: WindowText;
+		--gnome-tabbar-close-hover: #da4453;
+	}
+
+	/* Private window colors */
+	:root {
+		--gnome-private-accent: -moz-MenuHover;
+
+		/* Header bar */
+		--gnome-private-headerbar-background: var(--gnome-headerbar-background);
+		--gnome-private-headerbar-border-color: var(--gnome-headerbar-border-color);
+		--gnome-private-headerbar-box-shadow: var(--gnome-headerbar-box-shadow);
+		--gnome-private-inactive-headerbar-background: var(--gnome-inactive-headerbar-background);
+		--gnome-private-inactive-headerbar-border-color:var(--gnome-inactive-headerbar-border-color);
+		--gnome-private-inactive-headerbar-box-shadow: var(--gnome-inactive-headerbar-box-shadow);
+
+		/* Buttons */
+		--gnome-private-button-background: var(--gnome-button-background);
+		--gnome-private-button-border-color: var(--gnome-button-border-color);
+		--gnome-private-button-border-accent-color: var(--gnome-button-border-accent-color);
+		--gnome-private-button-box-shadow: var(--gnome-button-box-shadow);
+		--gnome-private-button-hover-background: var(--gnome-button-hover-background);
+		--gnome-private-button-hover-border-color: var(--gnome-button-hover-border-color);
+		--gnome-private-button-active-background: var(--gnome-button-active-background);
+		--gnome-private-button-active-border-color: var(--gnome-button-active-border-color);
+		--gnome-private-button-active-border-accent-color: var(--gnome-button-active-border-accent-color);
+		--gnome-private-button-active-box-shadow: var(--gnome-button-active-box-shadow);
+		--gnome-private-button-disabled-background: var(--gnome-button-disabled-background);
+		--gnome-private-button-disabled-border-color: var(--gnome-button-disabled-border-color);
+		--gnome-private-button-disabled-box-shadow:  var(--gnome-button-disabled-box-shadow);
+		--gnome-private-inactive-button-background: var(--gnome-inactive-button-background);
+		--gnome-private-inactive-button-border-color: var(--gnome-inactive-button-border-color);
+		--gnome-private-inactive-button-box-shadow:  var(--gnome-inactive-button-box-shadow);
+
+		/* Entries */
+		--gnome-private-entry-border-color: ThreeDShadow;
+		--gnome-private-focused-urlbar-border-color: var(--gnome-private-accent);
+
+		/* Tabs */
+		--gnome-private-tabbar-tab-active-border-bottom-color: var(--gnome-private-accent);
+	}
+/* } */

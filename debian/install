@@ -1,0 +1,8 @@
+debian/switch-firefox-theme.desktop                 /etc/xdg/autostart
+debian/switch-firefox-theme                         /usr/bin
+debian/firefox-breeze-settings.js                   /usr/lib/firefox/defaults/pref
+breeze-overrides                                    /usr/share/themes/firefox-breeze-theme/chrome
+configuration                                       /usr/share/themes/firefox-breeze-theme/chrome
+theme                                               /usr/share/themes/firefox-breeze-theme/chrome
+customChrome.css                                    /usr/share/themes/firefox-breeze-theme/chrome
+userChrome.css                                      /usr/share/themes/firefox-breeze-theme/chrome

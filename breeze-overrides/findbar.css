@@ -1,0 +1,13 @@
+/* Find bar  */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+findbar {
+	padding-top: calc((max(var(--gnome-entry-height), var(--gnome-button-height)) - var(--gnome-button-small-height)) / 2 + var(--gnome-item-padding)) !important;
+    padding-bottom: calc((max(var(--gnome-entry-height), var(--gnome-button-height)) - var(--gnome-button-small-height)) / 2 + var(--gnome-item-padding)) !important;
+}
+
+hbox[anonid="findbar-textbox-wrapper"] {
+	align-items: center !important; 
+	display: flex !important;
+}

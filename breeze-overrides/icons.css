@@ -1,0 +1,62 @@
+/* Replace icons */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Fix icons sizes */
+.permission-popup-permission-remove-button > .button-box > .button-icon,
+.menu-iconic-icon,
+.urlbar-icon,
+.textbox-search-sign,
+.item-twisty-container {
+    min-height: var(--gnome-toolbar-icon-small-size) !important;
+	height: var(--gnome-toolbar-icon-small-size) !important;
+    min-width: var(--gnome-toolbar-icon-small-size) !important;
+	width: var(--gnome-toolbar-icon-small-size) !important;
+}
+
+.textbox-search-sign {
+	margin: 0 !important;
+}
+
+/* Url Bar icons */
+.urlbar-icon {
+	margin: 0 !important;
+}
+
+
+/* Icons active color */
+/* menu:not([disabled]):not(#PlacesToolbar .bookmark-item):hover > .menu-right,
+menu:not([disabled]):not(#PlacesToolbar .bookmark-item)[open] > .menu-right,
+treechildren::-moz-tree-twisty(selected, focus),
+treechildren::-moz-tree-twisty(selected, focus, open),
+treechildren::-moz-tree-image(selected, focus),
+treechildren::-moz-tree-image(selected, focus, open),
+.item.client:focus .item-twisty-container,
+.sidebar-panel[lwt-sidebar-brighttext] .sidebar-placesTreechildren::-moz-tree-twisty,
+.sidebar-panel[lwt-sidebar-brighttext] .sidebar-placesTreechildren::-moz-tree-twisty(open),
+menuitem[type="checkbox"]:not([disabled="true"]):hover .menu-iconic-icon,
+menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
+	fill: #fff !important;
+} */
+
+/* Menu checkbox */
+/* menuitem[type="checkbox"] {
+	list-style-image: url("../icons/checkbox-symbolic.svg") !important;
+}
+menuitem[type="checkbox"][checked="true"] {
+	list-style-image: url("../icons/checkbox-checked-symbolic.svg") !important;
+}
+menuitem[type="checkbox"][disabled="true"] .menu-iconic-icon {
+	opacity: 0.5;
+} */
+
+/* Menu radio */
+/* menuitem[type="radio"] {
+	list-style-image: url("../icons/radio-symbolic.svg") !important;
+}
+menuitem[type="radio"][checked="true"] {
+	list-style-image: url("../icons/radio-checked-symbolic.svg") !important;
+}
+menuitem[type="radio"][disabled="true"] .menu-iconic-icon {
+	opacity: 0.5;
+} */
