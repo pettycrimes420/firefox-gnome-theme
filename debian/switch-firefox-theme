@@ -11,10 +11,12 @@ firefoxInstalationPaths=(
 
 if ! [[ -e "$FIREFOXFOLDER" ]];
 then
-	# Run firefox to create a profile
-	echo "creating a profile"
-	firefox &
-	sleep 1 && pkill firefox
+    # Run firefox to create a profile
+    echo "creating a profile"
+    firefox --headless &
+    FIREFOX_PID=$!
+    sleep 2
+    kill "$FIREFOX_PID"
 fi
 
 theme_apply() {
