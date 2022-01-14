@@ -1,0 +1,33 @@
+@import "breeze-overrides/toolbox.css";
+@import "breeze-overrides/headerbar.css";
+@import "breeze-overrides/urlbar.css";
+@import "breeze-overrides/tabsbar.css";
+@import "breeze-overrides/findbar.css";
+@import "breeze-overrides/sidebar.css";
+@import "breeze-overrides/lists.css";
+
+@import "breeze-overrides/buttons.css";
+@import "breeze-overrides/entries.css";
+@import "breeze-overrides/icons.css";
+
+@import "breeze-overrides/popups.css";
+
+@import "breeze-overrides/system-colors.css";
+
+@import "breeze-overrides/system-icons.css";
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+:root {
+    --gnome-item-margin: 1px;
+    --gnome-item-padding: 6px;
+    --gnome-entry-height: 30px;
+    --gnome-button-height: 32px;
+    --gnome-toolbar-icon-size: 22px;
+    --gnome-button-small-height: 26px;
+    --gnome-toolbar-icon-small-size: 16px;
+    --gnome-border-radius: 3px;
+    --gnome-menu-padding: 0;
+    --gnome-menu-item-border-radius: 3px;
+    --gnome-menu-item-padding: 6px 8px;
+}
