@@ -2,7 +2,7 @@
 
  @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
-/* Tabbar height */
+/* Tabs toolbar height */
 #TabsToolbar {
      height: auto !important;
      max-height: 30px !important;
@@ -13,9 +13,13 @@ tab > stack {
     min-height: auto !important;
 }
 
-/* Tabbar background color */
+/* Tabbar background color and height */
 #tabbrowser-tabs {
+    height:auto !important;
     background-color: var(--gnome-window-background);
+}
+#tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
+    height: auto !important;
 }
 #tabbrowser-tabs:-moz-window-inactive {
     background-color: var(--gnome-inactive-window-background);    
