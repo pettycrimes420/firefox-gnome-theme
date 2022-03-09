@@ -16,6 +16,7 @@ tab > stack {
 /* Tabbar background color and height */
 #tabbrowser-tabs {
     height:auto !important;
+    max-height: 30px !important;
     background-color: var(--gnome-window-background);
 }
 #tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
