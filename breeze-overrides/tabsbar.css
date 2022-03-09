@@ -151,7 +151,7 @@ tab > stack {
 }
 
 /* Close button overlay */
-.tabbrowser-tab:not([pinned]) .tab-content::after {
+.tabbrowser-tab:not([pinned]) .tab-content::after, .tabbrowser-tab:not([pinned]) .tab-content::before {
     display: none !important;
 }
 
