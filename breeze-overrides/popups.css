@@ -15,7 +15,7 @@
     --panel-item-hover-bgcolor: var(--gnome-popover-button-hover-background) !important;
     --panel-item-active-bgcolor: var(--gnome-popover-button-hover-background) !important;
     --panel-separator-margin: 0 !important;
-
+    
     --arrowpanel-background: var(--gnome-menu-background) !important;
     --arrowpanel-border-color: var(--gnome-menu-border-color) !important;
     --arrowpanel-border-radius: var(--gnome-border-radius) !important;
@@ -102,7 +102,7 @@ panel {
     --panel-padding: var(--gnome-menu-padding) !important;
 }
 .panel-header {
-	padding: 0 !important;
+    padding: 0 !important;
 }
 
 /* Restore padding on dialog like popovers */
@@ -126,7 +126,7 @@ popupnotification {
 #PlacesToolbar .bookmark-item {
     border: 1px solid transparent !important;
     border-radius: var(--gnome-menu-item-border-radius) !important;
-    width:auto !important
+    width: auto !important
 }
 .subviewbutton,
 .protections-popup-category,

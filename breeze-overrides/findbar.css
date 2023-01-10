@@ -4,7 +4,12 @@
 
 findbar {
 	padding-top: calc((max(var(--gnome-entry-height), var(--gnome-button-height)) - var(--gnome-button-small-height)) / 2 + var(--gnome-item-padding)) !important;
-    padding-bottom: calc((max(var(--gnome-entry-height), var(--gnome-button-height)) - var(--gnome-button-small-height)) / 2 + var(--gnome-item-padding)) !important;
+	padding-bottom: calc((max(var(--gnome-entry-height), var(--gnome-button-height)) - var(--gnome-button-small-height)) / 2 + var(--gnome-item-padding)) !important;
+}
+
+.findbar-container {
+	padding: 0px 0px 0px var(--gnome-item-padding) !important;
+	height: auto !important;
 }
 
 hbox[anonid="findbar-textbox-wrapper"] {
