@@ -1,0 +1,10 @@
+/* Dialogs */
+
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Content */
+.dialog-content-box,
+#dialogGrid {
+    padding: var(--gnome-item-padding) !important;
+    padding-bottom: 0px !important;
+}
