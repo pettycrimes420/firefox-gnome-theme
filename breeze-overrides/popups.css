@@ -126,6 +126,7 @@ popupnotification {
 #PlacesToolbar .bookmark-item {
     border: 1px solid transparent !important;
     border-radius: var(--gnome-menu-item-border-radius) !important;
+    width:auto !important
 }
 .subviewbutton,
 .protections-popup-category,
