@@ -30,8 +30,9 @@ findbar:-moz-window-inactive description,
 }
 
 /* Reorder toolbars */
-#navigator-toolbox #PersonalToolbar {
+findbar {
 	-moz-box-ordinal-group: 0 !important;
+	order: -1 !important;
 }
 
 #PersonalToolbar {
