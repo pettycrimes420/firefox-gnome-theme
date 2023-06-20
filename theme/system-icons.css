@@ -46,6 +46,12 @@
 	.close-icon:not(.tab-close-button) image {
 		filter: var(--gnome-window-icons-hack-filter) !important;
 	}
+	/* Icon size */
+	toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+		width: 16px !important;
+		height: 16px !important;
+		padding: 0 !important;
+	}
 
 	/* Navbar icons */
 

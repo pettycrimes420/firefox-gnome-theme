@@ -405,8 +405,10 @@ tab[selected]:-moz-window-inactive {
 
 /* OPTIONAL: Hide single tab */
 @supports -moz-bool-pref("gnomeTheme.hideSingleTab") {
-	#tabbrowser-tabs tab:only-of-type {
-		display: none !important;
+	#tabbrowser-tabs tab:only-of-type,
+	#tabbrowser-tabs tab:only-of-type ~ toolbarbutton,
+	#tabbrowser-tabs tab:only-of-type ~ #tabbrowser-arrowscrollbox-periphery {
+		visibility: collapse;
 	}
 }
 

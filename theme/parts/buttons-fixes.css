@@ -165,6 +165,11 @@ button.close {
 	opacity: 1 !important;
 }
 
+/* Sidebar header button sizing */
+#sidebar-switcher-target {
+	flex: unset !important;
+}
+
 /* Sidebar history view */
 #viewButton {
 	margin: 0 !important;
