@@ -206,18 +206,13 @@ tab > stack {
     min-width: 100px !important;
 }
 
-/* Don't show alltabs-button when hidden tabs are present */
-#tabbrowser-tabs:not([overflow="true"]) ~ #alltabs-button {
-    display: none;
-}
-
 /* Hide private browsing indicator */
 .private-browsing-indicator {
     display: none 
 }
 
 /* OPTIONAL: Use normal width tabs */
-@supports -moz-bool-pref("gnomeTheme.normalWidthTabs") {
+@media (-moz-bool-pref: "gnomeTheme.normalWidthTabs") {
 	.tabbrowser-tab:not([style^="max-width"]):not([pinned]),
 	.tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]) {
 		max-width: 250px !important;
@@ -225,7 +220,7 @@ tab > stack {
 }
 
 /* OPTIONAL: Hide new tab button when only a single tab is visible */
-@supports -moz-bool-pref("gnomeTheme.hideSingleTab") {
+@media (-moz-bool-pref: "gnomeTheme.hideSingleTab") {
 	#tabbrowser-tabs tab:only-of-type + toolbarbutton {
 		display: none !important;
 	}

@@ -15,7 +15,7 @@
 }
 
 /* OPTIONAL: no maximum sidebar size */
-@supports -moz-bool-pref("gnomeTheme.allowLargeSidebar") {
+@media (-moz-bool-pref: "gnomeTheme.allowLargeSidebar") {
 	#sidebar {
 		max-width: none !important;
   	}

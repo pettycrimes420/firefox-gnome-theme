@@ -385,7 +385,7 @@ tab[selected]:-moz-window-inactive {
 
 /* OPTIONAL: GNOME spinner */
 /* Temporal until I find time to work around the rendering issue */
-@supports -moz-bool-pref("gnomeTheme.spinner") {
+@media (-moz-bool-pref: "gnomeTheme.spinner") {
 	/* Tab spinner */
 	.tab-throbber::before {
 		animation: gnome-spinner 1s linear infinite !important;
@@ -403,8 +403,16 @@ tab[selected]:-moz-window-inactive {
 	}
 }
 
+/* Tabs manager menu */
+#alltabs-button {
+	visibility: collapse;
+}
+#tabbrowser-tabs[overflow="true"] ~ #alltabs-button {
+	visibility: visible;
+}
+
 /* OPTIONAL: Hide single tab */
-@supports -moz-bool-pref("gnomeTheme.hideSingleTab") {
+@media (-moz-bool-pref: "gnomeTheme.hideSingleTab") {
 	#tabbrowser-tabs tab:only-of-type,
 	#tabbrowser-tabs tab:only-of-type ~ toolbarbutton,
 	#tabbrowser-tabs tab:only-of-type ~ #tabbrowser-arrowscrollbox-periphery {
@@ -413,7 +421,7 @@ tab[selected]:-moz-window-inactive {
 }
 
 /* OPTIONAL: Use normal width tabs */
-@supports -moz-bool-pref("gnomeTheme.normalWidthTabs") {
+@media (-moz-bool-pref: "gnomeTheme.normalWidthTabs") {
 	.tabbrowser-tab:not([style^="max-width"]):not([pinned]),
 	.tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]) {
 		max-width: 225px !important;
@@ -421,7 +429,7 @@ tab[selected]:-moz-window-inactive {
 }
 
 /* OPTIONAL: Add more contrast to the active tab */
-@supports -moz-bool-pref("gnomeTheme.activeTabContrast") {
+@media (-moz-bool-pref: "gnomeTheme.activeTabContrast") {
 	.tab-background[selected=true],
 	:root:not(:-moz-window-inactive) .tabbrowser-tab:hover > .tab-stack > .tab-background:not(#hack) {
 		background: var(--gnome-tabbar-tab-active-background-contrast) !important;

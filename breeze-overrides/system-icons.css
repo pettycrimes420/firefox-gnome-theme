@@ -3,7 +3,7 @@
 /* Icons light/dark fix coloring hack filters */
 
 /* These are not needed for Breeze icons */
-@supports not -moz-bool-pref("gnomeTheme.symbolicSystemIcons") {
+@media not (-moz-bool-pref: "gnomeTheme.symbolicSystemIcons") {
     :root {
         --gnome-icons-hack-filter: none !important;
         --gnome-window-icons-hack-filter: none !important;
@@ -17,7 +17,7 @@
     }
 }
     
-@supports -moz-bool-pref("gnomeTheme.systemIcons") {
+@media (-moz-bool-pref: "gnomeTheme.systemIcons") {
     /* Scroll icons */
     arrowscrollbox {
         --scrollbutton-icon-name: url("moz-icon://stock/go-down-symbolic?size=menu") !important;
