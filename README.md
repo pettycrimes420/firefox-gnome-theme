@@ -16,7 +16,7 @@ This theme follows latest GNOME Adwaita style.
 > ### Disclaimer:
 > Be aware that this theme might do things that are not supported by upstream Firefox. If you face an issue while using this theme, report it here first or test if it is reproducible in vanilla Firefox.
 >
-> If you are a software distribution maintainer, please do not ship this changes by default to your users unless you made extremely clear that they are using a modified version of Firefox UI.
+> If you are a software distribution maintainer, please do not ship these changes by default to your users unless you make it extremely clear that they are using a modified version of the Firefox UI.
 
 ![Screenshot of the theme](screenshot.png)
 
@@ -30,7 +30,7 @@ Matrix room: [#firefox-gnome-theme:matrix.org](https://matrix.to/#/#firefox-gnom
 
 ### Firefox versions support
 
-The `master` branch of this repo supports the current Firefox stable release `126`.
+The `master` branch of this repo supports the current Firefox stable release `127`.
 
 Theme versions compatible with older Firefox releases are preserved as git tags.
 
@@ -268,6 +268,11 @@ Optional features can be enabled by creating new `boolean` preferences in `about
 	Place the tabs on the top of the window, and use the tabs bar to hold the window controls, like Firefox's standard tab bar.
 	
 	> **Note:** Enabling with `gnomeTheme.hideSingleTab` will replace the single tab with a title bar.
+
+- **OLED black theme** `gnomeTheme.oledBlack`
+
+	Change the dark theme into the black variant.
+	
 
 ### Extensions support
 
